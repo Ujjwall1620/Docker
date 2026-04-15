@@ -1,0 +1,31 @@
+# Create a Docker volume
+docker volume create mysql-data
+
+# Check volumes
+docker volume ls
+
+# Run MySQL container with volume
+docker run -d \
+--name mysql-container \
+-e MYSQL_ROOT_PASSWORD=root123 \
+-v mysql-data:/var/lib/mysql \
+mysql:8.0
+
+# Check running container
+docker ps
+
+# Access MySQL
+docker exec -it mysql-container mysql -u root -p
+
+# Stop container
+docker stop mysql-container
+
+# Remove container
+docker rm mysql-container
+
+# Run again with same volume (data will persist)
+docker run -d \
+--name mysql-container \
+-e MYSQL_ROOT_PASSWORD=root123 \
+-v mysql-data:/var/lib/mysql \
+mysql:8.0
