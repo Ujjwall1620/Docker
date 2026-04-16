@@ -1,0 +1,62 @@
+# Docker Commands Used in This Project
+
+# 1. Create Docker Network
+
+docker network create my-network
+
+# 2. Run MySQL Container
+
+docker run -d 
+--name mysql-container 
+--network my-network 
+-e MYSQL_ROOT_PASSWORD=root 
+-e MYSQL_DATABASE=testdb 
+mysql
+
+# 3. Build Spring Boot JAR (Skip Tests)
+
+mvn clean package -DskipTests
+
+# 4. Build Docker Image
+
+docker build -t springboot-app .
+
+# 5. Run Spring Boot Container
+
+docker run -d 
+--name springboot-app 
+--network my-network 
+-p 8080:8080 
+springboot-app
+
+# 6. Check Running Containers
+
+docker ps
+
+# 7. Check Logs
+
+docker logs springboot-app
+
+# 8. Inspect Network
+
+docker network inspect my-network
+
+# 9. Enter MySQL Container
+
+docker exec -it mysql-container mysql -u root -p
+
+# 10. Stop Containers
+
+docker stop mysql-container springboot-app
+
+# 11. Start Containers
+
+docker start mysql-container springboot-app
+
+# 12. Remove Containers
+
+docker rm -f mysql-container springboot-app
+
+# 13. Remove Network
+
+docker network rm my-network
