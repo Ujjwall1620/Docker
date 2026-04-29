@@ -27,8 +27,6 @@ docker-mastery/
 ├── 04-networking/           # Container communication
 ├── 05-dockerfile/           # Building custom images
 ├── 06-docker-compose/       # Multi-container setup
-├── 07-multi-container-app/  # Real-world applications
-├── 08-advanced/             # Advanced Docker concepts
 │
 └── projects/                # Production-level projects
 ```
