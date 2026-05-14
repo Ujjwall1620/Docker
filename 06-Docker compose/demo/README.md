@@ -1,4 +1,4 @@
-# 📦 Docker Compose Setup – Spring Boot + MySQL
+##📦 Docker Compose Setup – Spring Boot + MySQL
 
 ## 🧩 Overview
 
